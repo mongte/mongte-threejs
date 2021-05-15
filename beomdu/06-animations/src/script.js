@@ -50,7 +50,6 @@ const tick = () => {
     */
 
         const elapsedTime = clock.getElapsedTime()
-        console.log('@@@@@@@@-----------elapsedTime', elapsedTime);
     camera.position.x = Math.cos(elapsedTime)
     camera.position.y = Math.sin(elapsedTime)
     camera.lookAt(mesh.position)
