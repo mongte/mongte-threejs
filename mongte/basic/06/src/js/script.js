@@ -31,8 +31,9 @@ const sizes = {
 /**
  * Camera
  */
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
-camera.position.z = 3
+const camera = new THREE.PerspectiveCamera(20, sizes.width / sizes.height)
+camera.position.z = 5
+camera.position.x = 1
 scene.add(camera)
 
 /**
@@ -47,14 +48,29 @@ renderer.setSize(sizes.width, sizes.height)
 /**
  * Animate
  */
-gsap.to(mesh.position, { duration: 1, delay: 1, x: 2 })
 
-const tick = () => {
-  // Render
+console.log(mesh.position)
+let tween = gsap.to(mesh.position, { duration: 1, delay: 1, x: 2 })
+console.log(tween)
+
+
+tween.eventCallback('onUpdate', () => {
   renderer.render(scene, camera)
+})
 
-  // Call tick again on the next frame
-  window.requestAnimationFrame(tick)
-}
 
-tick()
+tween.eventCallback('onComplete', () => {
+  console.log('onComplete')
+})
+
+// const tick = () => {
+//   // Render
+//   renderer.render(scene, camera)
+
+//   console.log('1111')
+
+//   // Call tick again on the next frame
+//   window.requestAnimationFrame(tick)
+// }
+
+// tick()

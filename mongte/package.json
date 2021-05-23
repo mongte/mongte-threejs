@@ -1,0 +1,45 @@
+{
+  "name": "threejs-mongte",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@nuxt/typescript-runtime": "^2.0.1",
+    "@nuxtjs/axios": "^5.13.1",
+    "@types/three": "^0.128.0",
+    "core-js": "^3.8.3",
+    "gsap": "^3.6.1",
+    "nuxt": "^2.15.6",
+    "three": "^0.128.0"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.15.6",
+    "@nuxt/typescript-build": "^2.0.4",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "@nuxtjs/svg": "^0.1.12",
+    "@vue/test-utils": "^1.1.2",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^26.6.3",
+    "fibers": "^5.0.0",
+    "jest": "^26.6.3",
+    "node-sass": "^5.0.0",
+    "nuxt-property-decorator": "^2.9.1",
+    "sass": "^1.32.8",
+    "sass-loader": "10",
+    "ts-jest": "^26.4.4",
+    "vue-jest": "^3.0.4"
+  },
+  "descDependencies": {
+    "fibers": "확인 필요",
+    "global-sass": [
+      "@nuxtjs/style-resources"
+    ],
+    "nuxt-property-decorator": "version update가 2020 이후로 없어 일단 보류"
+  }
+}
