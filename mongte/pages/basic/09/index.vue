@@ -64,7 +64,7 @@ export default Vue.extend({
     scene.add(camera)
 
     this.renderer.setSize(this.sizes.width, this.sizes.height)
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    // this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     // Animate
 
     this.renderer.render(scene, camera)

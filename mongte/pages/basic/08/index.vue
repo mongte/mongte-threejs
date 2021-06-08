@@ -24,7 +24,7 @@ export default Vue.extend({
       return this.$refs.webgl
     },
     renderer() {
-      return new THREE.WebGLRenderer({
+      return new THREE.WebGLRenderer({ //bad
         canvas: this.cvWebgl
       })
     }
@@ -87,7 +87,9 @@ export default Vue.extend({
     const clock = new THREE.Clock()
 
     const controls = new OrbitControls(camera, this.cvWebgl)
+
     controls.enableDamping = true
+
     const tick = () => {
       const elapsedTime = clock.getElapsedTime()
       // camera.position.x = cursor.x * 5
@@ -97,6 +99,7 @@ export default Vue.extend({
       // camera.position.y = cursor.y * 3
       // camera.lookAt(mesh.position)
       controls.update()
+
       // Render
       this.renderer.render(scene, camera)
 
