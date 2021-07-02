@@ -54,7 +54,7 @@ export default Vue.extend({
 
         // Text
         const textGeometry = new THREE.TextBufferGeometry(
-          'mongte',
+          'FLITTO.',
           {
             font: font,
             size: 0.5,

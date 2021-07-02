@@ -52,9 +52,7 @@ export default {
     '@nuxtjs/svg'
   ],
   styleResources: {
-    scss: [
-      '@/assets/css/flitto-base-color.scss',
-    ]
+    scss: []
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
