@@ -7,37 +7,60 @@ const scene = new THREE.Scene()
 const axesHelper = new THREE.AxesHelper()
 scene.add(axesHelper)
 
-const material = new THREE.MeshBasicMaterial({ color: 'red', wireframe: true })
+const loadingManager = new THREE.LoadingManager()
+const textureLoader = new THREE.TextureLoader(loadingManager)
+const colorTexture = textureLoader.load('/textures/door/color.jpg')
+const material = new THREE.MeshBasicMaterial({ map: colorTexture })
 
-const geometry = new THREE.BufferGeometry()
-const positionsArray = new Float32Array([
-  2, 0, 0,
-  0, 2, 0,
-  0, 0, 2,
-  2, 0, 0,
-  2, 2, 0,
-  2, 0, 2,
-  0, 2, 0,
-  2, 2, 0,
-  2, 0, 2,
-  0, 0, 2,
-  2, 2, 0,
-  2, 0, 2,
-])
-const positionsAttribute = new THREE.BufferAttribute(positionsArray, 3)
-geometry.setAttribute('position', positionsAttribute)
-const mesh = new THREE.Mesh(geometry, material)
-scene.add(mesh)
+// const material = new THREE.MeshBasicMaterial({ color: 'red', wireframe: true})
 
-const boxGeometry = new THREE.BoxGeometry(1, 1, 1)
+const boxGeometry = new THREE.BoxGeometry(3, 1, 1)
+
 const mesh2 = new THREE.Mesh(boxGeometry, material)
-mesh2.position.y = 3
 scene.add(mesh2)
 
-const sphereGeometry = new THREE.SphereGeometry(1, 12, 12)
-const mesh3 = new THREE.Mesh(sphereGeometry, material)
-mesh3.position.z = 3
+const mesh3 = new THREE.Mesh(boxGeometry, material)
+mesh3.position.z = -1
 scene.add(mesh3)
+
+const mesh4 = new THREE.Mesh(boxGeometry, material)
+mesh4.position.z = 1
+scene.add(mesh4)
+
+const mesh5 = new THREE.Mesh(boxGeometry, material)
+mesh5.position.y = 2
+mesh5.position.z = -1
+scene.add(mesh5)
+
+const mesh6 = new THREE.Mesh(boxGeometry, material)
+mesh6.position.y = 2
+scene.add(mesh6)
+
+const mesh7 = new THREE.Mesh(boxGeometry, material)
+mesh7.position.y = 2
+mesh7.position.z = 1
+scene.add(mesh7)
+
+
+const mesh8 = new THREE.Mesh(boxGeometry, material)
+mesh8.position.y = 4
+mesh8.position.z = -1
+scene.add(mesh8)
+
+const mesh9 = new THREE.Mesh(boxGeometry, material)
+mesh9.position.y = 4
+scene.add(mesh9)
+
+const mesh10 = new THREE.Mesh(boxGeometry, material)
+mesh10.position.y = 4
+mesh10.position.z = 1
+scene.add(mesh10)
+
+
+// const sphereGeometry = new THREE.SphereGeometry(1, 12, 12)
+// const mesh3 = new THREE.Mesh(sphereGeometry, material)
+// mesh3.position.z = 1
+// scene.add(mesh3)
 
 const sizes = {
   width: window.innerWidth,
@@ -48,7 +71,7 @@ const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
 camera.position.x = 1
 camera.position.y = 1
 camera.position.z = 4
-camera.lookAt(mesh.position)
+// camera.lookAt(mesh.position)
 scene.add(camera)
 
 const canvas = document.querySelector('canvas.webgl')
@@ -61,8 +84,8 @@ renderer.setSize(sizes.width, sizes.height)
 
 // let time = Date.now()
 const tick = () => {
-  mesh3.rotation.y += 0.01
-  mesh2.rotation.x += 0.01
+  // mesh3.rotation.y += 0.01
+  // mesh2.rotation.x += 0.01
   renderer.render(scene, camera)
 
   controls.update()
